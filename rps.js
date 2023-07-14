@@ -10,3 +10,33 @@ function getComputerChoice(options) {      // Create a function called getComput
 // assign and call the function 'getComputerChoice' to randomChoice to output the random choice with console.log
 let randomChoice = getComputerChoice(options)
 console.log(randomChoice)
+
+
+function playRound (playerSelection, computerSelection) {
+    
+    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+        return 'You Lose! Paper beats Rock!';
+    }
+        else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+            return 'You Lose! Paper beats Rock!';
+        }
+        else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+            return 'You Lose! Paper beats Rock!';
+        }
+        else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+            return 'You Win! Rock beats Scissors';
+        }
+        else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+            return 'You Win! Paper beats Rock';
+        }
+        else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+            return 'You Win! Scissors beats Paper';
+        }
+        else if (playerSelection === computerSelection) {
+            return "It's a tie!"
+        }
+}
+
+let playerSelection = 'Scissors'
+let computerSelection = randomChoice
+console.log(playRound(playerSelection, computerSelection))
