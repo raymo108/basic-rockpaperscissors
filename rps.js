@@ -1,42 +1,78 @@
 // create an array to store the random choice from computerChoice
-const options = ['Rock', 'Paper', 'Scissors']
+const options = ['rock', 'paper', 'scissors']
 
 function getComputerChoice(options) {      // Create a function called getComputerChoice
-    let computerChoice = Math.floor(Math.random() * options.length); // Pick a random index in the array of options
+    const computerChoice = Math.floor(Math.random() * options.length); // Pick a random index in the array of options
     return options[computerChoice]; // return the element within the generated index
+
 }
-    
-
-// assign and call the function 'getComputerChoice' to randomChoice to output the random choice with console.log
-let randomChoice = getComputerChoice(options)
-console.log(randomChoice)
-
 
 function playRound (playerSelection, computerSelection) {
+    // convert playerSelection to lowercase no matter what for case-sensitivty
+    playerSelection = playerSelection.toLowerCase();
+    console.log("Computer selected " + computerSelection);
+  
     
-    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        return 'You Lose! Paper beats Rock!';
+    let computerCounter = 0;
+    let userCounter = 0;
+ 
+    if (playerSelection === 'rock' && computerSelection === 'paper') {
+        computerCounter++;
+        console.log("Computer score is " + computerCounter);
+        console.log("User Score is " + userCounter)
+        return 'You Lose! Paper beats Rock! 1 point for Computer';
     }
-        else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-            return 'You Lose! Paper beats Rock!';
+        else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+            computerCounter++
+            console.log("Computer score is " + computerCounter);
+            console.log("User Score is " + userCounter)
+            return 'You Lose! Scissors beats Paper! 1 point for Computer';
         }
-        else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-            return 'You Lose! Paper beats Rock!';
+        else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+            computerCounter++
+            console.log("Computer score is " + computerCounter);
+            console.log("User Score is " + userCounter)
+            return 'You Lose! Rock beats Scissors! 1 point for Computer';
         }
-        else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-            return 'You Win! Rock beats Scissors';
+        else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+            userCounter++
+            console.log("Computer score is " + computerCounter);
+            console.log("User Score is " + userCounter)
+            return 'You Win! Rock beats Scissors! You receive 1 point';
         }
-        else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-            return 'You Win! Paper beats Rock';
+        else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            userCounter++
+            console.log("Computer score is " + computerCounter);
+            console.log("User Score is " + userCounter)
+            return 'You Win! Paper beats Rock! You receive 1 point';
         }
-        else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-            return 'You Win! Scissors beats Paper';
+        else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+            userCounter++
+            console.log("Computer score is " + computerCounter);
+            console.log("User Score is " + userCounter)
+            return 'You Win! Scissors beats Paper! You receive 1 point';
         }
         else if (playerSelection === computerSelection) {
-            return "It's a tie!"
+            console.log("Computer score is " + computerCounter);
+            console.log("User Score is " + userCounter)
+            return "It's a tie! No points"
         }
+
+        
 }
 
-let playerSelection = 'Scissors'
-let computerSelection = randomChoice
+
+const playerSelection = prompt("Pick Rock, Paper, or Scissors")
+console.log("You selected " + playerSelection.toLowerCase())
+const computerSelection = getComputerChoice(options);
 console.log(playRound(playerSelection, computerSelection))
+
+function game() {
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+    playRound(playerSelection, computerSelection)
+}
+
+game();
